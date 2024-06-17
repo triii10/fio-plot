@@ -43,6 +43,8 @@ def get_default_settings():
     settings["include_hosts"] = None
     settings["exclude_hosts"] = None
     settings["colors"] = None
+    settings["vlines"] = None
+    settings["vspans"] = None
     return settings
 
 def get_graphtype(settings):

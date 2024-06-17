@@ -111,10 +111,32 @@ def chart_2d_log_data(settings, dataset):
                     support2d.drawline(settings, item, rw, supportdata)
 
     #
+    # Adding vertical lines if applicable
+    #
+                    
+    if settings["vlines"]:
+        vlines = supporting.get_vlines(settings["vlines"])
+        for coord in vlines:
+            plt.axvline(
+                coord,
+                color="blue",
+                ls="--",
+                lw=settings["line_width"]
+            )
+    
+    if settings["vspans"]:
+        vspan = supporting.get_vspans(settings["vspans"])
+        for coord in vspan:
+            plt.axvspan(
+                coord[0],
+                coord[1],
+                color="peachpuff"
+            )
+    
     # Generating the legend
     #
     values, ncol = support2d.generate_labelset(settings, supportdata)
-
+    # print(supportdata["lines"])
     host.legend(
         supportdata["lines"],
         values,
@@ -143,7 +165,7 @@ def chart_2d_log_data(settings, dataset):
     #
     # Print source
     #
-    ax = get_axis_for_label(axes)
+    # ax = get_axis_for_label(axes)
     supporting.plot_source(settings, plt, ax, -0.12)
 
     #

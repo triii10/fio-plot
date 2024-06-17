@@ -348,6 +348,12 @@ def set_arguments(settings):
     ag.add_argument(
         "--table-fontsize", help="Standard deviation table / CPU table font size", type=int,  default=settings["table_fontsize"]
     )
+    ag.add_argument(
+        "--vlines", help="File containing vertical line x-coordinates", type=str, default=None
+    )
+    ag.add_argument(
+        "--vspans", help="File containing vertical span x-coordinates", type=str, default=None
+    )
     group = parser.add_mutually_exclusive_group()
     
     group.add_argument(

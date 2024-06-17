@@ -116,6 +116,7 @@ def get_colors(settings):
 
 
 def drawline(settings, item, rw, supportdata):
+    # print("drawline called")
     axes = supportdata["axes"]
     if settings["enable_markers"]:
         marker_value = supportdata["marker_list"].pop(0)
@@ -199,6 +200,7 @@ def generate_labelset(settings, supportdata):
     }
 
     for label in supportdata["labels"]:
+        # print(label)
         for key in label.keys():
             label_length = len(str(label[key]))
             master_length = master_padding[key]
