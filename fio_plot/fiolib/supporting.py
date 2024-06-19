@@ -545,6 +545,8 @@ def filter_hosts(settings, item):
 
 def get_vlines(vlines_location):
     vlines = []
+    if not os.path.isfile(vlines_location):
+        return vlines
     with open(vlines_location, 'r', encoding='UTF-8') as file:
         while line := file.readline():
             if (line.rstrip()):
@@ -554,6 +556,8 @@ def get_vlines(vlines_location):
 
 def get_vspans(vspan_location):
     vspan = []
+    if not os.path.isfile(vspan_location):
+        return vspan
     with open(vspan_location, 'r', encoding='UTF-8') as file:
         while line := file.readline():
             if (line.rstrip()):
